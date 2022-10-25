@@ -59,40 +59,96 @@ class _CartScreenState extends State<CartScreen> {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: Consumer<CartProvider>(
-          builder: (context, data, _) {
-            return data.listProduct.isEmpty
-                ? Container()
-                : Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [
-                          Colors.white,
-                          Color.fromRGBO(241, 117, 50, 1),
+          child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.white,
+              Color.fromRGBO(241, 117, 50, 1),
+            ],
+          ),
+        ),
+        padding: EdgeInsets.only(left: 10, right: 10),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "CART",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 69, 69, 69)),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 120,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255).withOpacity(1),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color:
+                        const Color.fromARGB(255, 69, 69, 69).withOpacity(0.3),
+                    spreadRadius: 2,
+                    blurRadius: 3,
+                    offset: const Offset(0, 4), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  Image.network(
+                    "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                    height: 60,
+                    width: 60,
+                    fit: BoxFit.scaleDown,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Mens Casual Premium Slim Fit T-Shirts",
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                        softWrap: false,
+                        maxLines: 2,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.attach_money,
+                            size: 24,
+                          ),
+                          Text(
+                            "22.3",
+                            // ignore: prefer_const_constructors
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: const Color.fromARGB(255, 69, 69, 69),
+                            ),
+                            softWrap: true,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ],
                       ),
-                    ),
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          "CART",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 69, 69, 69)),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 120,
-                          padding: EdgeInsets.all(10),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          width: 60,
+                          height: 40,
+                          padding: EdgeInsets.only(
+                              left: 15, top: 10, right: 15, bottom: 10),
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 255, 255, 255)
                                 .withOpacity(1),
@@ -101,101 +157,29 @@ class _CartScreenState extends State<CartScreen> {
                               BoxShadow(
                                 color: const Color.fromARGB(255, 69, 69, 69)
                                     .withOpacity(0.3),
-                                spreadRadius: 2,
-                                blurRadius: 3,
+                                spreadRadius: 1,
+                                blurRadius: 2,
                                 offset: const Offset(
-                                    0, 4), // changes position of shadow
+                                    0, 0), // changes position of shadow
                               ),
                             ],
                           ),
-                          child: Row(
-                            children: [
-                              Image.network(
-                                "",
-                                height: 60,
-                                width: 60,
-                                fit: BoxFit.scaleDown,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "Mens Casual Premium Slim Fit T-Shirts",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                    softWrap: false,
-                                    maxLines: 2,
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.attach_money,
-                                        size: 24,
-                                      ),
-                                      Text(
-                                        "22.3",
-                                        // ignore: prefer_const_constructors
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: const Color.fromARGB(
-                                              255, 69, 69, 69),
-                                        ),
-                                        softWrap: true,
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ],
-                                  ),
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Container(
-                                      width: 60,
-                                      height: 40,
-                                      padding: EdgeInsets.only(
-                                          left: 15,
-                                          top: 10,
-                                          right: 15,
-                                          bottom: 10),
-                                      decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                                255, 255, 255, 255)
-                                            .withOpacity(1),
-                                        borderRadius: BorderRadius.circular(10),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: const Color.fromARGB(
-                                                    255, 69, 69, 69)
-                                                .withOpacity(0.3),
-                                            spreadRadius: 1,
-                                            blurRadius: 2,
-                                            offset: const Offset(0,
-                                                0), // changes position of shadow
-                                          ),
-                                        ],
-                                      ),
-                                      child: Text(
-                                        "Bỏ",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
+                          child: Text(
+                            "Bỏ",
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
                         ),
-                      ],
-                    ),
-                  );
-          },
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
-      ),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
